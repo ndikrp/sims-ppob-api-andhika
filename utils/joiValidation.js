@@ -57,4 +57,14 @@ const UpdateProfileSchema = Joi.object({
 	}),
 });
 
-export { RegisterSchema, LoginSchema, UpdateProfileSchema };
+const TopUpSchema = Joi.object({
+	top_up_amount: Joi.number().required().min(0).messages({
+		"any.required": "Parameter amount harus diisi",
+		"number.base":
+			"Paramter amount hanya boleh angka dan tidak boleh lebih kecil dari 0",
+		"number.min":
+			"Paramter amount hanya boleh angka dan tidak boleh lebih kecil dari 0",
+	}),
+});
+
+export { RegisterSchema, LoginSchema, UpdateProfileSchema, TopUpSchema };
