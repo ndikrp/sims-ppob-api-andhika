@@ -8,7 +8,9 @@
 		"dev": "nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"migrate:up": "node database/migrate.js",
-		"migrate:down": "node database/migrate.js down"
+		"migrate:down": "node database/migrate.js down",
+		"seed-banner": "node database/seeders/seedBanners.js",
+		"seed-service": "node database/seeders/seedServices.js"
 	},
 	"repository": {
 		"type": "git",
