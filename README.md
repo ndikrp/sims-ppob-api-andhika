@@ -34,6 +34,7 @@ npm run migrate:down
 ```
 
 For more run command, please check package.json.
+Optional: Run the seeder command for banners and services
 
 ### 4. Run the Project
 
