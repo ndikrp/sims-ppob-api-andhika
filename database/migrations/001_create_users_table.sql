@@ -4,6 +4,8 @@ CREATE TABLE IF NOT EXISTS users (
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     profile_image TEXT NULL,
+    reset_token VARCHAR(255) NULL,
+    reset_token_expires VARCHAR(255) NULL,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );

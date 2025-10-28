@@ -2,13 +2,13 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./config/logger.js";
-import pool from "./database/db.js";
+import router from "./routes/index.js";
 
 const app = express();
 
 app.use(
 	cors({
-		methods: "GET, PUT, PATCH, POST, HEAD",
+		methods: "GET, PUT, POST, HEAD",
 		allowedHeaders:
 			"Content-Type, Authorization, Accept-Language, Accept-Encoding",
 		exposedHeaders:
@@ -20,6 +20,17 @@ app.use(
 
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/v1", router);
+
+app.use((err, req, res, next) => {
+	res.status(err.status || 500);
+	res.json({
+		status: false,
+		message: err.message,
+	});
+});
 
 app.use((req, res) => {
 	const url = req.url;
