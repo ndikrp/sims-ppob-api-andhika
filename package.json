@@ -1,40 +1,43 @@
 {
-  "name": "test-praktek",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ndikrp/sims-ppob-api-andhika.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ndikrp/sims-ppob-api-andhika/issues"
-  },
-  "homepage": "https://github.com/ndikrp/sims-ppob-api-andhika#readme",
-  "devDependencies": {
-    "eslint": "^9.38.0",
-    "globals": "^16.4.0",
-    "morgan": "^1.10.1",
-    "nodemon": "^3.1.10"
-  },
-  "dependencies": {
-    "@google-cloud/storage": "^7.17.2",
-    "bcrypt": "^6.0.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "helmet": "^8.1.0",
-    "http-errors": "^2.0.0",
-    "jest": "^30.2.0",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^2.0.2",
-    "pg": "^8.16.3"
-  }
+	"name": "test-praktek",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"migrate:up": "node database/migrate.js",
+		"migrate:down": "node database/migrate.js down"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ndikrp/sims-ppob-api-andhika.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ndikrp/sims-ppob-api-andhika/issues"
+	},
+	"homepage": "https://github.com/ndikrp/sims-ppob-api-andhika#readme",
+	"devDependencies": {
+		"eslint": "^9.38.0",
+		"globals": "^16.4.0",
+		"morgan": "^1.10.1",
+		"nodemon": "^3.1.10"
+	},
+	"dependencies": {
+		"@google-cloud/storage": "^7.17.2",
+		"bcrypt": "^6.0.0",
+		"cors": "^2.8.5",
+		"dotenv": "^17.2.3",
+		"express": "^5.1.0",
+		"helmet": "^8.1.0",
+		"http-errors": "^2.0.0",
+		"jest": "^30.2.0",
+		"jsonwebtoken": "^9.0.2",
+		"multer": "^2.0.2",
+		"pg": "^8.16.3",
+		"uuid": "^13.0.0"
+	}
 }

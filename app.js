@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./config/logger.js";
+import pool from "./database/db.js";
 
 const app = express();
 
