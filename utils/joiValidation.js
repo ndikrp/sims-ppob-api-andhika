@@ -2,29 +2,59 @@ import Joi from "joi";
 
 const RegisterSchema = Joi.object({
 	email: Joi.string().email().required().messages({
-		"any.required": "Email must be filled",
-		"string.empty": "Email cannot be empty",
+		"any.required": "Parameter email tidak sesuai format",
+		"string.empty": "Parameter email tidak boleh kosong",
+		"string.email": "Parameter email tidak sesuai format",
 	}),
-	first_name: Joi.string().required().messages({
-		"any.required": "First Name must be filled",
-		"string.empty": "First Name cannot be empty",
-	}),
-	last_name: Joi.string().messages({
-		"any.required": "Last Name must be a character",
-	}),
-	password: Joi.string()
-		.pattern(
-			/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=\S+$).{8,250}$/
-		)
+	first_name: Joi.string()
+		.pattern(/^(?!\s*$)[a-zA-Z\s]+$/)
 		.required()
 		.messages({
-			"string.empty": "Password cannot be empty",
-			"string.min": "Password must be at least 8 characters long",
-			"string.max": "Password must not exceed 250 characters",
-			"string.pattern.base":
-				"Password must contain at least one uppercase letter, one number, one symbol, and no spaces",
-			"any.required": "Password is required",
+			"any.required": "Parameter nama depan tidak boleh kosong",
+		}),
+	last_name: Joi.string().messages({
+		"any.required": "Parameter nama belakang tidak sesuai format",
+	}),
+	password: Joi.string()
+		.min(8)
+		.pattern(/^\S+$/, "no spaces")
+		.required()
+		.messages({
+			"string.empty": "Password tidak boleh kosong",
+			"string.min": "Password minimal 8 karakter",
+			"string.pattern.name": "Password tidak boleh mengandung spasi",
+			"any.required": "Password wajib diisi",
 		}),
 });
 
-export { RegisterSchema };
+const LoginSchema = Joi.object({
+	email: Joi.string().email().required().messages({
+		"any.required": "Parameter email tidak sesuai format",
+		"string.empty": "Parameter email tidak boleh kosong",
+		"string.email": "Parameter email tidak sesuai format",
+	}),
+	password: Joi.string()
+		.min(8)
+		.pattern(/^\S+$/, "no spaces")
+		.required()
+		.messages({
+			"string.empty": "Password tidak boleh kosong",
+			"string.min": "Format password tidak sesuai",
+			"string.pattern.name": "Format password tidak sesuai",
+			"any.required": "Password wajib diisi",
+		}),
+});
+
+const UpdateProfileSchema = Joi.object({
+	first_name: Joi.string()
+		.pattern(/^(?!\s*$)[a-zA-Z\s]+$/)
+		.required()
+		.messages({
+			"any.required": "Parameter nama depan tidak boleh kosong",
+		}),
+	last_name: Joi.string().messages({
+		"any.required": "Parameter nama belakang tidak sesuai format",
+	}),
+});
+
+export { RegisterSchema, LoginSchema, UpdateProfileSchema };
