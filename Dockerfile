@@ -1,8 +1,8 @@
 FROM node:22
 
-RUN apt-get update && apt-get install -y openssl postgresql-client && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y openssl postgresql-client && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
 
