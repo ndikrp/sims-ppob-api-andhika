@@ -10,6 +10,6 @@ RUN npm install --omit=dev && npm cache clean --force
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 9000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
