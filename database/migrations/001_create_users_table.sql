@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
     last_name VARCHAR(100) NOT NULL,
     password TEXT NOT NULL,
     profile_image TEXT NULL,
+    balance BIGINT DEFAULT 0,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
