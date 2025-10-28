@@ -5,8 +5,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y openssl postgresql-client && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
-
-RUN npm install --omit=dev && npm cache clean --force
+RUN npm install
 
 COPY . .
 
