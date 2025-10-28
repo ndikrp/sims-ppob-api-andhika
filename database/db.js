@@ -1,14 +1,9 @@
 import pkg from "pg";
 const { Pool } = pkg;
 
-const useSSL =
-	process.env.DB_SSL === "true" ||
-	process.env.NODE_ENV === "production" ||
-	process.env.DATABASE_URL?.includes("sslmode=require");
-
 const pool = new Pool({
 	connectionString: process.env.DATABASE_URL,
-	ssl: useSSL ? { rejectUnauthorized: false } : false,
+	ssl: { rejectUnauthorized: false },
 	max: 10,
 	idleTimeoutMillis: 30000,
 });
