@@ -7,7 +7,7 @@
 	"scripts": {
 		"dev": "nodemon index.js",
 		"start": "node index.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
 		"migrate:up": "node database/migrate.js",
 		"migrate:down": "node database/migrate.js down",
 		"seed-banner": "node database/seeders/seedBanners.js",
@@ -37,7 +37,6 @@
 		"express": "^5.1.0",
 		"helmet": "^8.1.0",
 		"http-errors": "^2.0.0",
-		"jest": "^30.2.0",
 		"joi": "^18.0.1",
 		"jsonwebtoken": "^9.0.2",
 		"multer": "^2.0.2",
