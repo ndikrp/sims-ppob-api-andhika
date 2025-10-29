@@ -1,4 +1,4 @@
-# Thesis Management System - Gradia
+# SIMS PPOB - API
 
 ---
 
@@ -50,6 +50,6 @@ Either way:
 npm run start
 ```
 
-> Development URL for this service is: http://localhost:3000
+> Development URL for this service is: http://localhost:8080
 
 ---

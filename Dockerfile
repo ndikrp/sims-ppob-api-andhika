@@ -1,6 +1,6 @@
 FROM node:22
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y openssl postgresql-client && rm -rf /var/lib/apt/lists/*
 
